@@ -1,9 +1,14 @@
-# Fabric Example Mod
+# Removed Features Readded
+The whole point of this mod is to bring dead/removed features from older versions of Minecraft back into the modern version of the game, and optimize them to be both performant and fun!
 
-## Setup
+## Where to download (TODO)
+~~You can download the latest version from modrinth: https://modrinth.com/mod/removed-features-readded~~
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
 
-## License
+## Features
+Below is a list of current, and planned features!
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+- [ ] Ability to toggle all options (SERVER ONLY)
+- [x] Mobs run away when a creeper explodes
+- [ ] Steve Mob (In a different way than just a test mob, and give it some real AI)
+- [ ] ?Herobrine Mob? (This could be a counterpart to Steve and an small chance of happening, I mean mojang does say they remove him in every update, so technically a removed feature)
