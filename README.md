@@ -14,3 +14,6 @@ Below is a list of current, and planned features!
 - [x] Mobs run away when a creeper explodes
 - [ ] Steve Mob (In a different way than just a test mob, and give it some real AI)
 - [ ] ?Herobrine Mob? (This could be a counterpart to Steve and an small chance of happening, I mean mojang does say they remove him in every update, so technically a removed feature)
+- [ ] Dirt Slab
+- [ ] Ruby Ore
+- [ ] Cauldron Potion Making
