@@ -1,0 +1,19 @@
+{
+  "item.rfr.steve_spawn_egg": "Steve Spawn Egg",
+  "item.rfr.herobrine_spawn_egg": "Herobrine Spawn Egg",
+  "item.rfr.ruby": "Ruby",
+  "item.rfr.ruby_sword": "Ruby Sword",
+  "item.rfr.ruby_axe": "Ruby Axe",
+  "item.rfr.ruby_shovel": "Ruby Shovel",
+  "item.rfr.ruby_hoe": "Ruby Hoe",
+  "item.rfr.ruby_pickaxe": "Ruby Pickaxe",
+  "item.rfr.ruby_helmet": "Ruby Helmet",
+  "item.rfr.ruby_chestplate": "Ruby Chestplate",
+  "item.rfr.ruby_leggings": "Ruby Leggings",
+  "item.rfr.ruby_boots": "Ruby Boots",
+  "block.rfr.ruby_block": "Block of Ruby",
+  "block.rfr.ruby_ore": "Ruby Ore",
+  "block.rfr.deepslate_ruby_ore": "Deepslate Ruby Ore",
+  "block.rfr.dirt_slab": "Dirt Slab",
+  "gamerule.shouldMobsAvoidCreepers": "Should hostile mobs run from exploding Creepers"
+}

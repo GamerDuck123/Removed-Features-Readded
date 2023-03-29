@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "rfr:ruby"
+    }
+  },
+  "pattern": [
+    "###",
+    " X ",
+    " X "
+  ],
+  "result": {
+    "item": "rfr:ruby_pickaxe"
+  },
+  "show_notification": true
+}

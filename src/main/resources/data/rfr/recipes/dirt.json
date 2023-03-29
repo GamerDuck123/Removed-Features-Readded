@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "natural",
+  "group": "dirt",
+  "key": {
+    "#": {
+      "item": "rfr:dirt_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:dirt"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "rfr:deepslate_ruby_ore",
+    "rfr:ruby_ore",
+    "rfr:ruby_block"
+  ]
+}

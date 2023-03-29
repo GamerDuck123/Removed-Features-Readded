@@ -1,22 +1,22 @@
-package com.gamerduck.rfr.goals;
+package com.gamerduck.rfr.entity.goals;
 
+import com.gamerduck.rfr.RFRMod;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.passive.LlamaEntity;
-import net.minecraft.entity.passive.WolfEntity;
 
-public class CreeperFleeGoal<T extends LivingEntity> extends FleeEntityGoal<T> {
+public class AvoidExplosionGoal<T extends LivingEntity> extends FleeEntityGoal<T> {
     private final HostileEntity ent;
 
-    public CreeperFleeGoal(HostileEntity ent, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed) {
+    public AvoidExplosionGoal(HostileEntity ent, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed) {
         super(ent, fleeFromType, distance, slowSpeed, fastSpeed);
         this.ent = ent;
     }
 
     public boolean canStart() {
-        if (super.canStart() && this.targetEntity instanceof CreeperEntity creeper) {
+        if (ent.getWorld().getGameRules().getBoolean(RFRMod.SHOULD_MOBS_AVOID_CREEPERS) &&
+                super.canStart() && this.targetEntity instanceof CreeperEntity creeper) {
             return creeper.getFuseSpeed() == 1 || creeper.isIgnited();
         } else {
             return false;
