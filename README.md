@@ -10,10 +10,9 @@ Right now the mod can be installed on EITHER the client or the server, doesn't n
 ## Features
 Below is a list of current, and planned features!
 
-- [ ] Ability to toggle all options (SERVER ONLY)
-- [x] Mobs run away when a creeper explodes
-- [ ] Steve Mob (In a different way than just a test mob, and give it some real AI)
-- [ ] ?Herobrine Mob? (This could be a counterpart to Steve and an small chance of happening, I mean mojang does say they remove him in every update, so technically a removed feature)
-- [ ] Dirt Slab
-- [ ] Ruby Ore
+- [x] Mobs run away when a creeper explodes, this is a new gamerule called shouldMobsAvoidCreepers, enabled by default
+- [X] Steve Mob (AI not implemented yet)
+- [X] ?Herobrine Mob? (AI not implemented yet)
+- [X] Dirt Slab, its a dirt slab, can be crafted like any other slab, and used like any other slab.
+- [X] Ruby Ore, Ruby Armor, and Ruby Tools now exist as a middle ground between Diamond and Netherite, they can be found in the overworld anywhere between -20 and -64
 - [ ] Cauldron Potion Making
