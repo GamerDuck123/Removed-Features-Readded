@@ -68,18 +68,18 @@ public class RFRItems {
         RUBY_AXE = register("ruby_axe", (new AxeItem(RubyToolMaterial.INSTANCE, 5.0F, -3.0F, new Item.Settings())));
         RUBY_HOE = register("ruby_hoe", (new HoeItem(RubyToolMaterial.INSTANCE, -3, 0.0F, new Item.Settings())));
 
-
-        RUBY_HELMET = register("ruby_helmet", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Settings()));
-        RUBY_CHESTPLATE = register("ruby_chestplate", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
-        RUBY_LEGGINGS = register("ruby_leggings", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()));
-        RUBY_BOOTS = register("ruby_boots", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()));
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
             content.addAfter(Items.DIAMOND_HOE, RUBY_SHOVEL);
             content.addAfter(RUBY_SHOVEL, RUBY_PICKAXE);
             content.addAfter(RUBY_PICKAXE, RUBY_AXE);
             content.addAfter(RUBY_AXE, RUBY_HOE);
         });
+
+        RUBY_HELMET = register("ruby_helmet", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Settings()));
+        RUBY_CHESTPLATE = register("ruby_chestplate", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+        RUBY_LEGGINGS = register("ruby_leggings", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+        RUBY_BOOTS = register("ruby_boots", new ArmorItem(RubyArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()));
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
             content.addAfter(Items.DIAMOND_SWORD, RUBY_SWORD);
             content.addAfter(Items.DIAMOND_AXE, RUBY_AXE);

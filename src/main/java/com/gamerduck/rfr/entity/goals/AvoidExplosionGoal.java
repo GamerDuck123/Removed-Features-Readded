@@ -6,7 +6,7 @@ import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
 
-public class AvoidExplosionGoal<T extends LivingEntity> extends FleeEntityGoal<T> {
+public class AvoidExplosionGoal<T extends HostileEntity> extends FleeEntityGoal<T> {
     private final HostileEntity ent;
 
     public AvoidExplosionGoal(HostileEntity ent, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed) {
@@ -16,20 +16,18 @@ public class AvoidExplosionGoal<T extends LivingEntity> extends FleeEntityGoal<T
 
     public boolean canStart() {
         if (ent.getWorld().getGameRules().getBoolean(RFRMod.SHOULD_MOBS_AVOID_CREEPERS) &&
-                super.canStart() && this.targetEntity instanceof CreeperEntity creeper) {
+                super.canStart() && this.targetEntity instanceof CreeperEntity creeper)
             return creeper.getFuseSpeed() == 1 || creeper.isIgnited();
-        } else {
-            return false;
-        }
+        else return false;
     }
 
     public void start() {
-        ent.setTarget((LivingEntity)null);
+        ent.setTarget(null);
         super.start();
     }
 
     public void tick() {
-        ent.setTarget((LivingEntity)null);
+        ent.setTarget(null);
         super.tick();
     }
 }

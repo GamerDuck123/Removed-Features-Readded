@@ -1,29 +1,19 @@
 package com.gamerduck.rfr.entity.models;
 
-import com.gamerduck.rfr.entity.SteveEntity;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.EntityModelPartNames;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.random.Random;
 
 import java.util.List;
 
-public class SteveEntityModel extends BipedEntityModel<SteveEntity> {
-    private static final String EAR = "ear";
-    private static final String CLOAK = "cloak";
-    private static final String LEFT_SLEEVE = "left_sleeve";
-    private static final String RIGHT_SLEEVE = "right_sleeve";
-    private static final String LEFT_PANTS = "left_pants";
-    private static final String RIGHT_PANTS = "right_pants";
+public class HumanEntityModel<T extends LivingEntity> extends BipedEntityModel<T> {
     private final List<ModelPart> parts;
     public final ModelPart leftSleeve;
     public final ModelPart rightSleeve;
@@ -31,13 +21,9 @@ public class SteveEntityModel extends BipedEntityModel<SteveEntity> {
     public final ModelPart rightPants;
     public final ModelPart jacket;
     private final ModelPart cloak;
-    private final ModelPart ear;
-    private final boolean thinArms;
 
-    public SteveEntityModel(ModelPart root, boolean thinArms) {
+    public HumanEntityModel(ModelPart root) {
         super(root, RenderLayer::getEntityTranslucent);
-        this.thinArms = thinArms;
-        this.ear = root.getChild("ear");
         this.cloak = root.getChild("cloak");
         this.leftSleeve = root.getChild("left_sleeve");
         this.rightSleeve = root.getChild("right_sleeve");
@@ -49,22 +35,13 @@ public class SteveEntityModel extends BipedEntityModel<SteveEntity> {
         }).collect(ImmutableList.toImmutableList());
     }
 
-    public static TexturedModelData getTexturedModelData(Dilation dilation, boolean slim) {
+    public static TexturedModelData getTexturedModelData(Dilation dilation) {
         ModelData modelData = BipedEntityModel.getModelData(dilation, 0.0F);
         ModelPartData modelPartData = modelData.getRoot();
-        modelPartData.addChild("ear", ModelPartBuilder.create().uv(24, 0).cuboid(-3.0F, -6.0F, -1.0F, 6.0F, 6.0F, 1.0F, dilation), ModelTransform.NONE);
         modelPartData.addChild("cloak", ModelPartBuilder.create().uv(0, 0).cuboid(-5.0F, 0.0F, -1.0F, 10.0F, 16.0F, 1.0F, dilation, 1.0F, 0.5F), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-        float f = 0.25F;
-        if (slim) {
-            modelPartData.addChild("left_arm", ModelPartBuilder.create().uv(32, 48).cuboid(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, dilation), ModelTransform.pivot(5.0F, 2.5F, 0.0F));
-            modelPartData.addChild("right_arm", ModelPartBuilder.create().uv(40, 16).cuboid(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, dilation), ModelTransform.pivot(-5.0F, 2.5F, 0.0F));
-            modelPartData.addChild("left_sleeve", ModelPartBuilder.create().uv(48, 48).cuboid(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(5.0F, 2.5F, 0.0F));
-            modelPartData.addChild("right_sleeve", ModelPartBuilder.create().uv(40, 32).cuboid(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(-5.0F, 2.5F, 0.0F));
-        } else {
-            modelPartData.addChild("left_arm", ModelPartBuilder.create().uv(32, 48).cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
-            modelPartData.addChild("left_sleeve", ModelPartBuilder.create().uv(48, 48).cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
-            modelPartData.addChild("right_sleeve", ModelPartBuilder.create().uv(40, 32).cuboid(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(-5.0F, 2.0F, 0.0F));
-        }
+        modelPartData.addChild("left_arm", ModelPartBuilder.create().uv(32, 48).cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
+        modelPartData.addChild("left_sleeve", ModelPartBuilder.create().uv(48, 48).cuboid(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(5.0F, 2.0F, 0.0F));
+        modelPartData.addChild("right_sleeve", ModelPartBuilder.create().uv(40, 32).cuboid(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(-5.0F, 2.0F, 0.0F));
 
         modelPartData.addChild("left_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation), ModelTransform.pivot(1.9F, 12.0F, 0.0F));
         modelPartData.addChild("left_pants", ModelPartBuilder.create().uv(0, 48).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, dilation.add(0.25F)), ModelTransform.pivot(1.9F, 12.0F, 0.0F));
@@ -77,18 +54,7 @@ public class SteveEntityModel extends BipedEntityModel<SteveEntity> {
         return Iterables.concat(super.getBodyParts(), ImmutableList.of(this.leftPants, this.rightPants, this.leftSleeve, this.rightSleeve, this.jacket));
     }
 
-    public void renderEars(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
-        this.ear.copyTransform(this.head);
-        this.ear.pivotX = 0.0F;
-        this.ear.pivotY = 0.0F;
-        this.ear.render(matrices, vertices, light, overlay);
-    }
-
-    public void renderCape(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
-        this.cloak.render(matrices, vertices, light, overlay);
-    }
-
-    public void setAngles(SteveEntity livingEntity, float f, float g, float h, float i, float j) {
+    public void setAngles(T livingEntity, float f, float g, float h, float i, float j) {
         super.setAngles(livingEntity, f, g, h, i, j);
         this.leftPants.copyTransform(this.leftLeg);
         this.rightPants.copyTransform(this.rightLeg);
@@ -121,20 +87,11 @@ public class SteveEntityModel extends BipedEntityModel<SteveEntity> {
         this.rightPants.visible = visible;
         this.jacket.visible = visible;
         this.cloak.visible = visible;
-        this.ear.visible = visible;
     }
 
     public void setArmAngle(Arm arm, MatrixStack matrices) {
         ModelPart modelPart = this.getArm(arm);
-        if (this.thinArms) {
-            float f = 0.5F * (float)(arm == Arm.RIGHT ? 1 : -1);
-            modelPart.pivotX += f;
-            modelPart.rotate(matrices);
-            modelPart.pivotX -= f;
-        } else {
-            modelPart.rotate(matrices);
-        }
-
+        modelPart.rotate(matrices);
     }
 
     public ModelPart getRandomPart(Random random) {

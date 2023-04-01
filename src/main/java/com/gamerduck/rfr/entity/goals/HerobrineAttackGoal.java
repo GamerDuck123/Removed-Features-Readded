@@ -27,12 +27,7 @@ public class HerobrineAttackGoal extends MeleeAttackGoal {
     public void tick() {
         super.tick();
         ++this.ticks;
-        if (this.ticks >= 5 && this.getCooldown() < this.getMaxCooldown() / 2) {
-            this.herobrine.setAttacking(true);
-            this.herobrine.swingHand(Hand.MAIN_HAND);
-        } else {
-            this.herobrine.setAttacking(false);
-        }
-
+        if (this.ticks >= 5 && this.getCooldown() < this.getMaxCooldown() / 2) this.herobrine.setAttacking(true);
+        else this.herobrine.setAttacking(false);
     }
 }
