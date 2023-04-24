@@ -26,6 +26,7 @@ modrinth {
 	uploadFile = remapJar
 	gameVersions = ["1.19.4"]
 	loaders = ["fabric"]
+	syncBodyFrom = rootProject.file("README.md").text
 }
 
 base {

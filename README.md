@@ -16,3 +16,6 @@ Below is a list of current, and planned features!
 - [ ] Cauldron Potion Making
 - [ ] Sky Dimension
 - [ ] Red Dragon
+- [ ] Giant's AI + Spawning
+- [ ] Quiver
+- [ ] ?Pig men?
