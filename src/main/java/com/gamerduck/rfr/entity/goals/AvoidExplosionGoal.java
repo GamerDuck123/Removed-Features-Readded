@@ -5,11 +5,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 
-public class AvoidExplosionGoal<T extends HostileEntity> extends FleeEntityGoal<T> {
-    private final HostileEntity ent;
+public class AvoidExplosionGoal<T extends PathAwareEntity> extends FleeEntityGoal<T> {
+    private final PathAwareEntity ent;
 
-    public AvoidExplosionGoal(HostileEntity ent, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed) {
+    public AvoidExplosionGoal(PathAwareEntity ent, Class<T> fleeFromType, float distance, double slowSpeed, double fastSpeed) {
         super(ent, fleeFromType, distance, slowSpeed, fastSpeed);
         this.ent = ent;
     }

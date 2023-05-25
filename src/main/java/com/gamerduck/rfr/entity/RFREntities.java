@@ -5,14 +5,17 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.mob.GiantEntity;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import static com.gamerduck.rfr.RFRMod.LOGGER;
 import static com.gamerduck.rfr.RFRMod.modid;
 
 public class RFREntities {
@@ -37,6 +40,9 @@ public class RFREntities {
         FabricDefaultAttributeRegistry.register(STEVE, SteveEntity.createSteveAttributes());
         BiomeModifications.addSpawn(BiomeSelectors.foundInOverworld(), SpawnGroup.CREATURE, RFREntities.STEVE, 1, 1, 2);
 
+        FabricDefaultAttributeRegistry.register(EntityType.GIANT, GiantEntity.createGiantAttributes());
+        BiomeModifications.addSpawn(BiomeSelectors.foundInOverworld(), SpawnGroup.MONSTER, EntityType.GIANT, 1, 1, 1);
+        LOGGER.info("giant added");
     }
 
 }

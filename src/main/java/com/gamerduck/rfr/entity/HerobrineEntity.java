@@ -1,5 +1,6 @@
 package com.gamerduck.rfr.entity;
 
+import com.gamerduck.rfr.entity.goals.AvoidExplosionGoal;
 import com.gamerduck.rfr.entity.goals.HerobrineAttackGoal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -7,6 +8,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.PathAwareEntity;
@@ -22,7 +24,8 @@ public class HerobrineEntity extends HostileEntity {
     public HerobrineEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new HerobrineAttackGoal(this, 1.0, false));
+        this.goalSelector.add(2, new AvoidExplosionGoal(this, CreeperEntity.class, 24.0F, 1.5, 1.5));
+        this.goalSelector.add(3, new HerobrineAttackGoal(this, 1.0, false));
         this.goalSelector.add(6, new MoveThroughVillageGoal(this, 1.0, false, 4, () -> true));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(8, new LookAtEntityGoal(this, LivingEntity.class, 8.0F));

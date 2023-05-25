@@ -47,6 +47,7 @@ public class RFRItems {
             content.addAfter(HEROBRINE_SPAWN_EGG, STEVE_SPAWN_EGG);
         });
 
+
         DIRT_SLAB_ITEM = register("dirt_slab", new BlockItem(DIRT_SLAB, new FabricItemSettings()));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> content.addAfter(Items.DIRT, DIRT_SLAB));
 
