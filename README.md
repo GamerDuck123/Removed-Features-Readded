@@ -10,9 +10,9 @@ Below is a list of current, and planned features!
 
 ☑ Mobs run away when a creeper explodes, this is a new gamerule called shouldMobsAvoidCreepers, enabled by default
 
-☑ Steve Mob (AI not implemented yet)
+☑ Steve Mob
 
-☑ ?Herobrine Mob? (AI not implemented yet)
+☑ Herobrine Mob
 
 ☑ Dirt Slab, its a dirt slab, can be crafted like any other slab, and used like any other slab.
 
@@ -24,7 +24,7 @@ Below is a list of current, and planned features!
 
 ☐ Red Dragon
 
-☐ Giant's AI + Spawning (AI DONE)
+☑ Giant's AI + Spawning (AI DONE, ?Spawning done?)
 
 ☐ Quiver
 
